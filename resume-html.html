@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈玥 - 前端开发简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.08);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            font-size: 0.95em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-info span:hover {
+            opacity: 1;
+        }
+        
+        .contact-info span::before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            background-color: #4ecdc4;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        main {
+            padding: 50px 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            color: #1a1a2e;
+            font-size: 1.9em;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #4ecdc4;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+        
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #fafbfc;
+            border-radius: 12px;
+            border-left: 4px solid #4ecdc4;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover, .experience-item:hover, .project-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #1a1a2e;
+        }
+        
+        .item-subtitle {
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
+        
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #fafbfc 0%, #f5f6f8 100%);
+            padding: 20px 25px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .skill-category h4 {
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .skill-category p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
+            padding: 25px;
+            border-radius: 12px;
+            line-height: 1.8;
+            color: #555;
+            border: 1px solid #e9ecef;
+            font-size: 1.05em;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            main {
+                padding: 30px 20px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+            }
+            
+            .item-date {
+                margin-top: 5px;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            header {
+                background: #1a1a2e;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .education-item, .experience-item, .project-item {
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>陈玥</h1>
+            <div class="subtitle">前端开发 / 数据可视化开发</div>
+            <div class="contact-info">
+                <span>手机：18162572435</span>
+                <span>QQ：1275522062</span>
+                <span>邮箱：karencyiku@outlook.com</span>
+                <span>微信：Cyy522_</span>
+            </div>
+        </header>
+        
+        <main>
+            <section>
+                <h2>自我评价</h2>
+                <div class="summary">
+                    香港大学三年级本科生，主修统计学，辅修金融学，现正系统自学前端开发技能。具备扎实的数据建模与编程基础，熟悉可视化工具和网页端数据展示流程。学习能力强，善于跨领域协作，致力于将技术应用于实际问题。希望加入前端开发团队，将数据与交互设计结合，打造高性能用户体验。
+                </div>
+            </section>
+            
+            <section>
+                <h2>教育背景</h2>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">香港大学</div>
+                            <div class="item-subtitle">理学院 | 统计学 | 本科 / 商学院 | 金融学 | 双学位</div>
+                        </div>
+                        <div class="item-date">2022-07 至 2026-07</div>
+                    </div>
+                    <ul>
+                        <li>获选香港大学理学院 2024-2025 年度院长荣誉名单</li>
+                        <li>相关课程：机器学习 / 数据可视化 / 优化方法 / 数据库管理 / 计算机编程基础 / 数据结构与算法</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section>
+                <h2>工作经历</h2>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">武汉海微科技有限公司</div>
+                            <div class="item-subtitle">数据分析实习生</div>
+                        </div>
+                        <div class="item-date">2024-05 至 2024-08</div>
+                    </div>
+                    <ul>
+                        <li>参与异常检测系统开发，设计前端交互原型与标注界面，结合图像数据可视化方案，将人工复检时间减少约 40%，优化用户操作流程</li>
+                        <li>支持算法团队监控数据分布异常，使用 SQL 工具筛查噪声样本</li>
+                        <li>针对长尾样本提出采样优化建议，在多个图像项目中提升数据利用效率与处理速度</li>
+                        <li>编写 SQL 查询脚本并通过前端界面集成标签一致性校验功能，提升数据审核自动化与一致性准确性</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section>
+                <h2>项目经历</h2>
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">习惯追踪器前端开发</div>
+                            <div class="item-subtitle">开发者</div>
+                        </div>
+                        <div class="item-date">2024-02 至 2024-05</div>
+                    </div>
+                    <ul>
+                        <li>独立设计并开发基于 HTML/CSS/JavaScript 的习惯追踪器网页应用，实现本地数据存储与动态交互，适配移动端与桌面端浏览器</li>
+                        <li>采用模块化类封装结构构建 HabitTracker 核心逻辑，实现习惯添加、打卡、可视化进度与连续打卡天数等功能</li>
+                        <li>利用 DOM 操作动态生成卡片式统计组件、颜色选择器与日历视图，提升用户体验与使用黏性</li>
+                        <li>实现 LocalStorage 本地存储机制，在无后端支持下实现数据持久化与自动状态同步</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">EHR 再入院预测可视化系统开发项目</div>
+                            <div class="item-subtitle">组长</div>
+                        </div>
+                        <div class="item-date">2025-01 至 2025-05</div>
+                    </div>
+                    <ul>
+                        <li>处理 11,000+ 病人的电子病历数据，构建预测界面与交互式结果展示平台，实现临床风险提示前端可视化</li>
+                        <li>设计并开发预测前端界面，集成 FNN、随机森林等模型输出，支持模型选择、输入特征展示与风险评分输出</li>
+                        <li>使用 PyTorch 与 JavaScript 搭建轻量级端到端预测系统，通过 SHAP 可视化图表展示关键特征影响力，强化模型解释性</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">星域战机：基于 C++ 和 ncurses 的终端游戏开发</div>
+                            <div class="item-subtitle">核心成员</div>
+                        </div>
+                        <div class="item-date">2025-01 至今</div>
+                    </div>
+                    <ul>
+                        <li>利用 ncurses 构建终端图形用户界面（TUI），自定义窗口布局、交互按钮、色彩搭配，设计拟人化交互逻辑</li>
+                        <li>设计游戏结构体与链表节点管理系统，实现弹幕、敌人、玩家对象的动态控制与回收机制，确保内存安全与画面流畅</li>
+                        <li>参与 UI 架构设计，完成游戏主界面、菜单系统、章节切换与分布式剧情呈现，提高游戏可玩性与交互性</li>
+                        <li>游戏剧情结合《Starfield》设定，融合环境保护与科幻元素，吸引同侪积极试玩与反馈</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section>
+                <h2>个人技能</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>前端开发</h4>
+                        <p>HTML、终端界面开发（ncurses）</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>设计协作</h4>
+                        <p>Figma</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>编程语言</h4>
+                        <p>JavaScript、R、SQL、Python、C++</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
